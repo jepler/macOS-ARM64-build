@@ -18,6 +18,9 @@ jobs:
         which cc
         which gcc
 
+        ls -lR /Library/Developer/CommandLineTools || true
+        ls -lR $HOME/Library/Developer/CommandLineTools || true
+
         cc --version
 
         sudo xcode-select -switch /Applications/Xcode_12.2.app
@@ -28,4 +31,4 @@ jobs:
 
         cc --version
 
-        make
+        make universal_app
