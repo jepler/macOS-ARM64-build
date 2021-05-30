@@ -18,10 +18,10 @@ jobs:
         which cc
         which gcc
 
-        ls -lR /Library/Developer/CommandLineTools || true
-        ls -lR $HOME/Library/Developer/CommandLineTools || true
-
         cc --version
+        /Library/Developer/CommandLineTools/usr/bin/cc --version
+
+        export PATH=/Library/Developer/CommandLineTools/usr/bin/:$PATH
 
         sudo xcode-select -switch /Applications/Xcode_12.2.app
 
@@ -30,5 +30,6 @@ jobs:
         which gcc
 
         cc --version
+        /Library/Developer/CommandLineTools/usr/bin/cc --version
 
-        make universal_app
+        make universal_app CC=/Library/Developer/CommandLineTools/usr/bin/cc
